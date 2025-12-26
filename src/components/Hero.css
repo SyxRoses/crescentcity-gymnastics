@@ -1,0 +1,335 @@
+/* ============================================
+   HERO SECTION STYLES
+   ============================================ */
+
+.hero {
+    position: relative;
+    /* Ensure it takes at least the full viewport height */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+    /* Pull content up behind header */
+    margin-top: -80px;
+    padding-top: 150px;
+    /* Increased top padding mainly */
+    padding-bottom: 80px;
+}
+
+/* ===========================================
+   BACKGROUND
+   =========================================== */
+
+/* ===========================================
+   BACKGROUND
+   =========================================== */
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-image: url('/hero-banner.png');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+}
+
+/* Lighter, more subtle overlay to let the image pop */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom,
+            rgba(13, 19, 33, 0.3) 0%,
+            rgba(13, 19, 33, 0.4) 40%,
+            rgba(13, 19, 33, 0.85) 100%);
+    /* Add a radial gradient to darken just the text area slightly if needed */
+    background-blend-mode: multiply;
+}
+
+/* ===========================================
+   CONTENT
+   =========================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-16);
+    /* Increased gap */
+}
+
+/* ===========================================
+   TEXT CONTENT
+   =========================================== */
+
+.hero-text {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Add text shadow for readability against lighter bg */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tagline {
+    display: inline-block;
+    padding: var(--space-2) var(--space-6);
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--accent-primary);
+    /* Gold */
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: var(--space-8);
+}
+
+.hero-title {
+    /* Significantly larger for impact */
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: var(--font-extrabold);
+    line-height: 1.05;
+    margin-bottom: var(--space-8);
+    color: #ffffff;
+}
+
+.hero-title .text-italic {
+    font-family: serif;
+    /* Use serif for 'a Time' contrast */
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-gold-400);
+}
+
+.hero-description {
+    font-size: clamp(1.125rem, 1.5vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: var(--space-10);
+    max-width: 650px;
+    font-weight: 400;
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+}
+
+.hero-buttons .btn {
+    padding: var(--space-4) var(--space-8);
+    font-size: var(--text-base);
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================================
+   INFO CARDS
+   =========================================== */
+
+.hero-info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-8);
+    width: 100%;
+}
+
+.info-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    /* Center vertically specifically */
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    /* Frosted glass effect */
+    background: rgba(13, 19, 33, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-base), background var(--transition-base);
+}
+
+.info-card:hover {
+    background: rgba(13, 19, 33, 0.8);
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+}
+
+.info-card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 168, 75, 0.1), rgba(212, 168, 75, 0.2));
+    border-radius: 50%;
+    color: var(--accent-primary);
+    border: 1px solid rgba(212, 168, 75, 0.3);
+}
+
+.info-card-content {
+    text-align: left;
+}
+
+.info-card-content h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-400);
+    /* Lighter gold */
+    margin-bottom: var(--space-1);
+    opacity: 0.9;
+}
+
+.info-card-content p {
+    font-size: 0.95rem;
+    color: #ffffff;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ===========================================
+   SCROLL INDICATOR
+   =========================================== */
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--space-16);
+    /* Adjusted position */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* ===========================================
+   ANNOUNCEMENT BANNER
+   =========================================== */
+
+.hero-announcement {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(13, 19, 33, 0.95), rgba(20, 30, 50, 0.95));
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--space-3) var(--space-6);
+    z-index: 10;
+}
+
+.announcement-content {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    text-align: center;
+}
+
+.announcement-icon {
+    font-size: var(--text-xl);
+    line-height: 1;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 1024px) {
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        padding-bottom: 60px;
+        /* Space for announcement */
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-info-cards {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+    }
+
+    .info-card {
+        max-width: 100%;
+    }
+
+    .hero-scroll-indicator {
+        display: none;
+    }
+}

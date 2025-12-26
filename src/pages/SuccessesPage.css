@@ -1,0 +1,260 @@
+/* ============================================
+   SUCCESSES PAGE STYLES
+   ============================================ */
+
+@import '../styles/animations.css';
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+
+.successes-hero {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-32) var(--space-6);
+    overflow: hidden;
+}
+
+.successes-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at top center, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    z-index: 0;
+}
+
+.successes-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/hero-banner.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+.successes-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+}
+
+.successes-subtitle {
+    color: var(--accent-primary);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    margin-bottom: var(--space-4);
+}
+
+.successes-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+}
+
+.successes-description {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ===========================================
+   NOTICE SECTION
+   =========================================== */
+
+.notice-section {
+    padding: var(--space-8) 0;
+}
+
+.notice-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.notice-card svg {
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.notice-card p {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* ===========================================
+   ACHIEVEMENTS SECTION
+   =========================================== */
+
+.achievements-section {
+    padding: var(--space-20) 0;
+}
+
+.achievements-section-alt {
+    background: linear-gradient(180deg,
+            rgba(30, 41, 59, 0.5) 0%,
+            rgba(15, 23, 42, 0.8) 100%);
+}
+
+.achievements-intro {
+    text-align: center;
+    font-size: var(--text-lg);
+    color: var(--accent-primary);
+    font-weight: var(--font-semibold);
+    margin-top: var(--space-4);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+}
+
+.artistic-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.achievement-card {
+    position: relative;
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.achievement-card.has-medal {
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.achievement-medal {
+    position: absolute;
+    top: -16px;
+    right: 16px;
+    font-size: 2.5rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.achievement-content {
+    padding-top: var(--space-4);
+}
+
+.achievement-athletes {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.achievement-category {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.achievement-result {
+    font-size: var(--text-base);
+    color: var(--accent-primary);
+    font-weight: var(--font-semibold);
+}
+
+.achievement-highlight {
+    display: inline-block;
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+    color: #22c55e;
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    background: rgba(34, 197, 94, 0.15);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+}
+
+/* ===========================================
+   SUCCESS CTA
+   =========================================== */
+
+.success-cta-section {
+    padding: var(--space-20) 0;
+}
+
+.success-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-12);
+    border-radius: var(--radius-2xl);
+}
+
+.success-cta .cta-content h2 {
+    font-size: var(--text-2xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.success-cta .cta-content p {
+    color: var(--text-secondary);
+}
+
+.success-cta .cta-buttons {
+    display: flex;
+    gap: var(--space-4);
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 1024px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artistic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .success-cta {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-8);
+    }
+}
+
+@media (max-width: 768px) {
+    .successes-hero {
+        min-height: 45vh;
+        padding: var(--space-20) var(--space-4);
+    }
+
+    .achievements-section {
+        padding: var(--space-12) 0;
+    }
+
+    .achievements-grid,
+    .artistic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .success-cta .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .success-cta .cta-buttons .btn {
+        width: 100%;
+    }
+}

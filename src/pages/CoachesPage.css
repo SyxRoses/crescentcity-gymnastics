@@ -1,0 +1,355 @@
+/* ============================================
+   COACHES PAGE STYLES
+   ============================================ */
+
+@import '../styles/animations.css';
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+
+.coaches-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-32) var(--space-6);
+    overflow: hidden;
+}
+
+.coaches-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at top center, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    z-index: 0;
+}
+
+.coaches-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/hero-banner.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.08;
+}
+
+.coaches-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+}
+
+.coaches-subtitle {
+    color: var(--accent-primary);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    margin-bottom: var(--space-4);
+}
+
+.coaches-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-6);
+    line-height: 1.1;
+}
+
+.coaches-description {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+}
+
+/* ===========================================
+   OWNERS SECTION
+   =========================================== */
+
+.owners-section {
+    padding: var(--space-20) 0;
+}
+
+.owners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+    max-width: 900px;
+    margin: var(--space-12) auto 0;
+}
+
+.owner-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    background: linear-gradient(145deg,
+            rgba(212, 175, 55, 0.15),
+            rgba(30, 41, 59, 0.95));
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: var(--radius-xl);
+    transition: all 0.4s ease;
+}
+
+.owner-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.owner-avatar {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    border-radius: var(--radius-full);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-navy-900);
+}
+
+.owner-info h3 {
+    font-size: var(--text-xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.owner-role {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.owner-specialty {
+    display: inline-block;
+    font-size: var(--text-xs);
+    color: var(--accent-primary);
+    background: rgba(212, 175, 55, 0.15);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+}
+
+/* ===========================================
+   COACHES GRID
+   =========================================== */
+
+.coaches-grid-section {
+    padding: var(--space-20) 0;
+    background: linear-gradient(180deg,
+            rgba(30, 41, 59, 0.5) 0%,
+            rgba(15, 23, 42, 0.8) 100%);
+}
+
+.coaches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+}
+
+.coach-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+}
+
+.coach-avatar {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--accent-primary);
+    margin-bottom: var(--space-4);
+    transition: all 0.3s ease;
+}
+
+.coach-card:hover .coach-avatar {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
+    color: var(--color-navy-900);
+    border-color: var(--accent-primary);
+}
+
+.coach-info h4 {
+    font-size: var(--text-lg);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.coach-role {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+.coach-position {
+    display: inline-block;
+    font-size: var(--text-xs);
+    color: var(--accent-primary);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.coach-specialty {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* ===========================================
+   CERTIFICATIONS
+   =========================================== */
+
+.certifications-section {
+    padding: var(--space-20) 0;
+}
+
+.certifications-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--space-10);
+    border-radius: var(--radius-2xl);
+}
+
+.cert-icon {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05));
+    border-radius: var(--radius-full);
+    color: #22c55e;
+}
+
+.cert-content h3 {
+    font-size: var(--text-2xl);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+.cert-content p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+    max-width: none;
+}
+
+.cert-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+.cert-badge {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===========================================
+   JOIN CTA
+   =========================================== */
+
+.join-cta-section {
+    padding: var(--space-20) 0;
+}
+
+.join-cta {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-12);
+    text-align: center;
+}
+
+.join-cta h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+}
+
+.join-cta p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-8);
+    max-width: none;
+}
+
+.join-cta .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-4);
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 1024px) {
+    .coaches-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .coaches-hero {
+        min-height: 40vh;
+        padding: var(--space-20) var(--space-4);
+    }
+
+    .owners-section,
+    .coaches-grid-section,
+    .certifications-section,
+    .join-cta-section {
+        padding: var(--space-12) 0;
+    }
+
+    .owners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .owner-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .coaches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certifications-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cert-badges {
+        justify-content: center;
+    }
+
+    .join-cta .cta-buttons {
+        flex-direction: column;
+    }
+
+    .join-cta .cta-buttons .btn {
+        width: 100%;
+    }
+}
