@@ -65,7 +65,7 @@
 }
 
 /* ===========================================
-   TEAM SECTION
+   TEAM SECTION - Premium Purple Cards
    =========================================== */
 
 .team-section {
@@ -74,14 +74,50 @@
 
 .team-section-alt {
     background: linear-gradient(180deg,
-            rgba(30, 41, 59, 0.5) 0%,
-            rgba(15, 23, 42, 0.8) 100%);
+            var(--premium-obsidian) 0%,
+            var(--premium-blue) 100%);
 }
 
 .team-card {
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
-    padding: var(--space-10);
+    padding: var(--space-10) var(--space-12);
+    background: linear-gradient(145deg,
+            var(--premium-purple) 0%,
+            var(--premium-obsidian) 60%,
+            var(--premium-purple-light) 100%);
+    border-radius: 24px;
+    border: 1px solid rgba(74, 45, 122, 0.3);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.02),
+            transparent);
+    transition: left 0.7s ease;
+    pointer-events: none;
+}
+
+.team-card:hover::before {
+    left: 100%;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--premium-purple-light);
+    box-shadow:
+        0 25px 50px -15px rgba(0, 0, 0, 0.5),
+        0 0 35px var(--premium-purple-glow);
 }
 
 .team-header {
@@ -92,12 +128,15 @@
 }
 
 .team-icon {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 .team-header h2 {
     font-size: var(--text-2xl);
+    font-weight: 700;
     color: var(--accent-primary);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
 }
 
 .team-content {
@@ -108,7 +147,7 @@
 
 .team-description {
     font-size: var(--text-base);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.8;
     margin-bottom: var(--space-8);
     max-width: none;
@@ -124,32 +163,42 @@
     flex-direction: column;
     align-items: center;
     padding: var(--space-4) var(--space-6);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    background: rgba(212, 175, 55, 0.06);
+    border-color: rgba(212, 175, 55, 0.15);
 }
 
 .stat-box .stat-value {
     font-size: var(--text-xl);
-    font-weight: var(--font-bold);
+    font-weight: 700;
     color: var(--accent-primary);
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .stat-box .stat-label {
     font-size: var(--text-xs);
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
-    letter-spacing: var(--tracking-wide);
+    letter-spacing: 0.1em;
 }
 
 /* Team Pricing Card */
 .team-pricing {
     padding: var(--space-8);
-    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .team-pricing h3 {
     font-size: var(--text-lg);
+    font-weight: 600;
     color: var(--text-primary);
     margin-bottom: var(--space-6);
 }
@@ -157,31 +206,38 @@
 .pricing-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-3);
 }
 
 .pricing-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-4);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.pricing-row:hover {
+    background: rgba(212, 175, 55, 0.06);
+    border-color: rgba(212, 175, 55, 0.15);
 }
 
 .level-name {
     font-size: var(--text-sm);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .level-price {
-    font-weight: var(--font-semibold);
+    font-weight: 700;
     color: var(--accent-primary);
 }
 
 .pricing-note {
     font-size: var(--text-xs);
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.4);
     font-style: italic;
     margin-top: var(--space-4);
     text-align: center;

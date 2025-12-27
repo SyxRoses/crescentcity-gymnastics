@@ -61,6 +61,31 @@ function ClassesShowcase() {
     return (
         <section className="classes-section section" id="classes">
             <div className="container">
+                {/* Hero Intro - moved from hero section */}
+                <div className="hero-intro">
+                    <p className="hero-intro-tagline">New Orleans Premier Gymnastics Facility</p>
+                    <h1 className="hero-intro-title">
+                        Building <span className="text-gold">Champions</span>,<br />
+                        One Flip at <span className="text-italic">a Time</span>
+                    </h1>
+                    <p className="hero-intro-description">
+                        Training athletes of all skill levels in coordination, balance, flexibility,
+                        and strength. Join our positive, supportive community where every child
+                        can discover their potential.
+                    </p>
+                    <div className="hero-intro-buttons">
+                        <a href="#classes" className="btn btn-primary btn-lg">
+                            Explore Classes
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                            </svg>
+                        </a>
+                        <a href="#registration" className="btn btn-secondary btn-lg">
+                            Try a Class – $15
+                        </a>
+                    </div>
+                </div>
+
                 {/* Section Header - Portfolio Style */}
                 <div className="section-header">
                     <div className="section-header-title">

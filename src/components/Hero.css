@@ -4,17 +4,22 @@
 
 .hero {
     position: relative;
-    /* Ensure it takes at least the full viewport height */
-    min-height: 100vh;
+    /* Reduced height to show more of the banner image */
+    min-height: 85vh;
+    height: 85vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
     background-color: var(--bg-primary);
-    /* Pull content up behind header */
+    /* Pull content up behind header - full bleed to edges */
     margin-top: -80px;
-    padding-top: 150px;
-    /* Increased top padding mainly */
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    /* Remove side margins/padding for full-width */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 /* ===========================================
@@ -35,9 +40,12 @@
     height: 100%;
     z-index: 0;
     background-image: url('/hero-banner.png');
-    background-size: cover;
-    background-position: center 20%;
+    /* Contain to show full image including gymnasts on edges */
+    background-size: contain;
+    background-position: center center;
     background-repeat: no-repeat;
+    /* Dark background behind image for letterboxing */
+    background-color: var(--bg-primary);
 }
 
 /* Lighter, more subtle overlay to let the image pop */
@@ -63,6 +71,12 @@
     position: relative;
     z-index: 1;
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Reserve space for the announcement banner at the bottom */
+    padding-bottom: 80px;
 }
 
 .hero-container {
@@ -73,8 +87,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: var(--space-16);
-    /* Increased gap */
+    width: 100%;
 }
 
 /* ===========================================
@@ -92,19 +105,20 @@
 
 .hero-tagline {
     display: inline-block;
-    padding: var(--space-2) var(--space-6);
-    /* Glassmorphism effect */
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: var(--space-2) var(--space-5);
+    /* More transparent background */
+    background: rgba(13, 19, 33, 0.5);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(212, 168, 75, 0.5);
     border-radius: var(--radius-full);
-    font-size: var(--text-sm);
-    font-weight: var(--font-bold);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
     color: var(--accent-primary);
-    /* Gold */
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: var(--space-8);
+    letter-spacing: 0.12em;
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-6);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .hero-title {
@@ -158,9 +172,11 @@
 .hero-info-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-3);
     justify-content: center;
-    margin-top: var(--space-8);
+    margin-top: auto;
+    /* Add bottom margin for spacing from announcement banner */
+    margin-bottom: var(--space-8);
     width: 100%;
 }
 

@@ -12,30 +12,6 @@ function Hero() {
             {/* Content */}
             <div className="hero-content">
                 <div className="hero-container">
-                    {/* Main Content */}
-                    <div className="hero-text animate-fade-in">
-                        <p className="hero-tagline">New Orleans Premier Gymnastics Facility</p>
-                        <h1 className="hero-title">
-                            Building <span className="text-gold">Champions</span>,<br />
-                            One Flip at <span className="text-italic">a Time</span>
-                        </h1>
-                        <p className="hero-description">
-                            Training athletes of all skill levels in coordination, balance, flexibility,
-                            and strength. Join our positive, supportive community where every child
-                            can discover their potential.
-                        </p>
-                        <div className="hero-buttons">
-                            <a href="#classes" className="btn btn-primary btn-lg">
-                                Explore Classes
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#registration" className="btn btn-secondary btn-lg">
-                                Try a Class – $15
-                            </a>
-                        </div>
-                    </div>
 
                     {/* Quick Info Cards */}
                     <div className="hero-info-cards animate-fade-in delay-300">
@@ -80,14 +56,6 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="hero-scroll-indicator animate-float">
-                <span>Scroll</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg>
             </div>
 
             {/* Announcement Banner */}
