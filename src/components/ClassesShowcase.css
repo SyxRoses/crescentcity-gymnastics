@@ -113,15 +113,14 @@
 
 .class-card {
     position: relative;
-    background: linear-gradient(145deg,
-            var(--premium-blue) 0%,
-            var(--premium-obsidian) 100%);
+    background: var(--card-bg-dark);
     border-radius: 20px;
-    border: 1px solid var(--card-border-subtle);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeIn 0.6s ease forwards;
     opacity: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .class-card::after {
@@ -133,7 +132,7 @@
     height: 100%;
     background: linear-gradient(90deg,
             transparent,
-            rgba(255, 255, 255, 0.03),
+            rgba(0, 243, 255, 0.1),
             transparent);
     transition: left 0.7s ease;
     pointer-events: none;
@@ -146,10 +145,10 @@
 
 .class-card:hover {
     transform: translateY(-10px) scale(1.01);
-    border-color: rgba(212, 175, 55, 0.3);
+    border-color: var(--neon-cyan);
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.35),
-        0 0 30px rgba(212, 175, 55, 0.1);
+        0 10px 40px rgba(0, 0, 0, 0.6),
+        var(--neon-glow-cyan);
 }
 
 /* Card Image */

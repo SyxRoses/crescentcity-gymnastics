@@ -95,13 +95,11 @@
     position: relative;
     text-align: center;
     padding: var(--space-10) var(--space-8);
-    background: linear-gradient(145deg,
-            var(--premium-blue) 0%,
-            var(--premium-obsidian) 60%,
-            var(--premium-blue-light) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid var(--card-border-subtle);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .pricing-card::before {
@@ -125,10 +123,10 @@
 
 .pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--neon-cyan);
     box-shadow:
         0 30px 60px -15px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(212, 175, 55, 0.1);
+        var(--neon-glow-cyan);
 }
 
 /* Tier indicator */
@@ -228,14 +226,12 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-6) var(--space-7);
-    background: linear-gradient(145deg,
-            var(--premium-teal) 0%,
-            var(--premium-obsidian) 70%,
-            var(--premium-teal-light) 100%);
+    background: var(--card-bg-dark);
     border-radius: 16px;
-    border: 1px solid rgba(26, 92, 110, 0.3);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .specialty-card::before {
@@ -259,10 +255,10 @@
 
 .specialty-card:hover {
     transform: translateY(-6px) translateX(4px);
-    border-color: var(--premium-teal-light);
+    border-color: var(--neon-cyan);
     box-shadow:
         0 20px 40px -10px rgba(0, 0, 0, 0.4),
-        0 0 25px var(--premium-teal-glow);
+        var(--neon-glow-cyan);
 }
 
 .specialty-info h4 {
@@ -303,13 +299,11 @@
     position: relative;
     text-align: center;
     padding: var(--space-10) var(--space-8);
-    background: linear-gradient(145deg,
-            var(--premium-purple) 0%,
-            var(--premium-obsidian) 60%,
-            var(--premium-purple-light) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid rgba(74, 45, 122, 0.3);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .team-card::before {
@@ -333,10 +327,10 @@
 
 .team-card:hover {
     transform: translateY(-8px) scale(1.01);
-    border-color: var(--premium-purple-light);
+    border-color: var(--neon-purple);
     box-shadow:
         0 25px 50px -15px rgba(0, 0, 0, 0.5),
-        0 0 35px var(--premium-purple-glow);
+        var(--neon-glow-purple);
 }
 
 .team-icon {
@@ -404,13 +398,11 @@
     max-width: 650px;
     margin: var(--space-12) auto 0;
     padding: var(--space-10);
-    background: linear-gradient(145deg,
-            rgba(212, 175, 55, 0.08) 0%,
-            var(--premium-obsidian) 50%,
-            rgba(212, 175, 55, 0.04) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .private-lessons-card::before {
@@ -501,13 +493,11 @@
     position: relative;
     text-align: center;
     padding: var(--space-10);
-    background: linear-gradient(145deg,
-            rgba(212, 175, 55, 0.1) 0%,
-            var(--premium-obsidian) 50%,
-            rgba(212, 175, 55, 0.05) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .registration-card::before {
@@ -552,11 +542,10 @@
 
 .discounts-card {
     padding: var(--space-8) var(--space-10);
-    background: linear-gradient(145deg,
-            var(--premium-blue) 0%,
-            var(--premium-obsidian) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid var(--card-border-subtle);
+    border: 1px solid var(--card-border-default);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .discounts-card h3 {
@@ -620,13 +609,11 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-10) var(--space-12);
-    background: linear-gradient(145deg,
-            rgba(212, 175, 55, 0.12) 0%,
-            var(--premium-obsidian) 50%,
-            rgba(212, 175, 55, 0.06) 100%);
+    background: var(--card-bg-dark);
     border-radius: 24px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--card-border-default);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .trial-cta::before {
