@@ -85,11 +85,7 @@ function Header() {
                 {/* Logo */}
                 <Link to="/" className="header-logo">
                     <div className="logo-icon">
-                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 5C12 5 5 12 5 20C5 28 12 35 20 35" stroke="currentColor" strokeWidth="2" fill="none" />
-                            <path d="M15 8C10 12 8 18 10 25" stroke="currentColor" strokeWidth="2" fill="none" />
-                            <circle cx="12" cy="10" r="2" fill="currentColor" />
-                        </svg>
+                        <img src="/logo.png" alt="Crescent City Gymnastics Logo" />
                     </div>
                     <div className="logo-text">
                         <span className="logo-name">Crescent City</span>
