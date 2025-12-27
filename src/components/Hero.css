@@ -148,7 +148,7 @@
 }
 
 /* ===========================================
-   ANNOUNCEMENT BANNER - Now contains info cards
+   ANNOUNCEMENT BANNER - Scrolling Marquee
    =========================================== */
 
 .hero-announcement {
@@ -158,40 +158,117 @@
             rgba(13, 19, 33, 0.98) 0%,
             rgba(10, 15, 28, 1) 100%);
     border-top: 2px solid rgba(212, 168, 75, 0.3);
-    padding: var(--space-5) var(--space-6) var(--space-6);
+    padding: var(--space-4) 0 var(--space-6);
     z-index: 10;
+    overflow: hidden;
 }
 
-.announcement-content {
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-4);
-    text-align: center;
-    padding-bottom: var(--space-4);
+/* Scrolling Marquee Container */
+.announcement-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: var(--space-3) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: var(--space-5);
 }
 
-.announcement-content p {
-    font-size: 1.1rem;
-    color: #ffffff;
-    margin: 0;
-    font-weight: 500;
-    letter-spacing: 0.02em;
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
 }
 
-.announcement-content strong {
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: 0 var(--space-8);
+}
+
+/* Announcement Items */
+.announcement-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.announcement-item strong {
     color: var(--color-gold-400);
     font-weight: 700;
 }
 
 .announcement-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 1;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.announcement-divider {
+    color: var(--color-gold-500);
+    font-size: 1.2rem;
+    opacity: 0.6;
+    padding: 0 var(--space-4);
+}
+
+/* Glowing Text Effect for NEW CLASS ALERT */
+.glow-text {
+    color: #00ff88 !important;
+    text-shadow:
+        0 0 10px rgba(0, 255, 136, 0.8),
+        0 0 20px rgba(0, 255, 136, 0.6),
+        0 0 30px rgba(0, 255, 136, 0.4),
+        0 0 40px rgba(0, 255, 136, 0.2);
+    animation: glow-pulse 2s ease-in-out infinite;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+@keyframes glow-pulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px rgba(0, 255, 136, 0.8),
+            0 0 20px rgba(0, 255, 136, 0.6),
+            0 0 30px rgba(0, 255, 136, 0.4),
+            0 0 40px rgba(0, 255, 136, 0.2);
+    }
+
+    50% {
+        text-shadow:
+            0 0 15px rgba(0, 255, 136, 1),
+            0 0 30px rgba(0, 255, 136, 0.8),
+            0 0 45px rgba(0, 255, 136, 0.6),
+            0 0 60px rgba(0, 255, 136, 0.4);
+    }
+}
+
+.class-details {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Legacy static content - hidden now */
+.announcement-content {
+    display: none;
 }
 
 /* ===========================================

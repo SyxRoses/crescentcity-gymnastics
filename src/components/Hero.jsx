@@ -15,14 +15,44 @@ function Hero() {
                 </div>
             </div>
 
-            {/* Announcement Banner with Info Cards */}
+            {/* Scrolling Announcement Banner with Info Cards */}
             <div className="hero-announcement">
-                <div className="announcement-content">
-                    <span className="announcement-icon">🎄</span>
-                    <p>
-                        <strong>Holiday Notice:</strong> We will be CLOSED Dec. 24th - Jan. 2nd for Winter Break.
-                        <span className="text-gold"> Happy Holidays!</span>
-                    </p>
+                {/* Scrolling Marquee */}
+                <div className="announcement-marquee">
+                    <div className="marquee-track">
+                        {/* First set of announcements */}
+                        <div className="marquee-content">
+                            <span className="announcement-item holiday-notice">
+                                <span className="announcement-icon">🎄</span>
+                                <strong>Holiday Notice:</strong> We will be CLOSED Dec. 24th - Jan. 2nd for Winter Break.
+                                <span className="text-gold"> Happy Holidays!</span>
+                            </span>
+                            <span className="announcement-divider">✦</span>
+                            <span className="announcement-item class-alert">
+                                <span className="announcement-icon">🌟</span>
+                                <strong className="glow-text">!!!NEW CLASS ALERT!!!</strong>
+                                <span className="class-details"> All Star Cheer & Tumbling: Wed @ 7-8:30pm / Fri @ 6-7:30pm</span>
+                                <span className="text-gold"> Ages 8+ sign up below!</span>
+                            </span>
+                            <span className="announcement-divider">✦</span>
+                        </div>
+                        {/* Duplicate for seamless loop */}
+                        <div className="marquee-content">
+                            <span className="announcement-item holiday-notice">
+                                <span className="announcement-icon">🎄</span>
+                                <strong>Holiday Notice:</strong> We will be CLOSED Dec. 24th - Jan. 2nd for Winter Break.
+                                <span className="text-gold"> Happy Holidays!</span>
+                            </span>
+                            <span className="announcement-divider">✦</span>
+                            <span className="announcement-item class-alert">
+                                <span className="announcement-icon">🌟</span>
+                                <strong className="glow-text">!!!NEW CLASS ALERT!!!</strong>
+                                <span className="class-details"> All Star Cheer & Tumbling: Wed @ 7-8:30pm / Fri @ 6-7:30pm</span>
+                                <span className="text-gold"> Ages 8+ sign up below!</span>
+                            </span>
+                            <span className="announcement-divider">✦</span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Quick Info Cards - Now below announcement text */}
