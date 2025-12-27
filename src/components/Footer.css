@@ -75,7 +75,7 @@
     font-family: var(--font-display);
     font-size: var(--text-sm);
     font-style: italic;
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
 }
 
 .footer-description {
@@ -109,7 +109,7 @@
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
 }
 
 /* ===========================================

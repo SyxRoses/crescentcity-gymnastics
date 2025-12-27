@@ -40,19 +40,16 @@ function ContactPage() {
 
     const enrollSteps = [
         {
-            step: 1,
             icon: '📞',
             title: 'Contact Us',
             description: 'Call or email to sign up for an open class or schedule a trial.',
         },
         {
-            step: 2,
             icon: '📝',
             title: 'Complete Registration',
             description: 'Fill out the registration form and submit payment before first class.',
         },
         {
-            step: 3,
             icon: '🤸',
             title: 'Start Training',
             description: 'Arrive in proper attire and let the fun begin!',
@@ -312,10 +309,9 @@ function ContactPage() {
                     <div className="enroll-steps">
                         {enrollSteps.map((step, index) => (
                             <div
-                                key={step.step}
+                                key={index}
                                 className={`enroll-step luxury-card hover-lift reveal stagger-${index + 1}`}
                             >
-                                <div className="step-number">{step.step}</div>
                                 <div className="step-icon">{step.icon}</div>
                                 <h3>{step.title}</h3>
                                 <p>{step.description}</p>

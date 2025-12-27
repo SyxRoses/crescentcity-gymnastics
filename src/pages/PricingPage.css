@@ -22,8 +22,8 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at top center, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-        linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        radial-gradient(ellipse at top center, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        var(--grad-dark);
     z-index: 0;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .pricing-subtitle {
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
     font-size: var(--text-sm);
     text-transform: uppercase;
     letter-spacing: var(--tracking-widest);
@@ -95,11 +95,12 @@
     position: relative;
     text-align: center;
     padding: var(--space-10) var(--space-8);
-    background: var(--card-bg-dark);
+    background: var(--bg-card);
     border-radius: 24px;
-    border: 1px solid var(--card-border-default);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(12px);
 }
 
 .pricing-card::before {
@@ -123,10 +124,11 @@
 
 .pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
-    border-color: var(--neon-cyan);
+    border-color: var(--card-border-hover);
     box-shadow:
         0 30px 60px -15px rgba(0, 0, 0, 0.5),
-        var(--neon-glow-cyan);
+        var(--shadow-glow);
+    background: var(--bg-card-hover);
 }
 
 /* Tier indicator */
@@ -147,15 +149,15 @@
     position: absolute;
     top: 16px;
     right: 16px;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover));
-    color: var(--color-navy-900);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.4rem 0.85rem;
     border-radius: 999px;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    box-shadow: var(--shadow-glow);
 }
 
 .pricing-card-title {
@@ -191,8 +193,8 @@
 }
 
 .price-row:hover {
-    background: rgba(212, 175, 55, 0.08);
-    border-color: rgba(212, 175, 55, 0.2);
+    background: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.2);
     transform: translateX(4px);
 }
 
@@ -205,8 +207,8 @@
 .price-value {
     font-size: var(--text-xl);
     font-weight: 700;
-    color: var(--accent-primary);
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    color: var(--accent-secondary);
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
 }
 
 /* ===========================================
@@ -226,12 +228,13 @@
     justify-content: space-between;
     align-items: center;
     padding: var(--space-6) var(--space-7);
-    background: var(--card-bg-dark);
+    background: var(--bg-card);
     border-radius: 16px;
-    border: 1px solid var(--card-border-default);
+    border: 1px solid var(--card-border);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
 }
 
 .specialty-card::before {
@@ -255,10 +258,9 @@
 
 .specialty-card:hover {
     transform: translateY(-6px) translateX(4px);
-    border-color: var(--neon-cyan);
-    box-shadow:
-        0 20px 40px -10px rgba(0, 0, 0, 0.4),
-        var(--neon-glow-cyan);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--shadow-glow);
+    background: var(--bg-card-hover);
 }
 
 .specialty-info h4 {
@@ -276,12 +278,12 @@
 .specialty-price {
     font-size: var(--text-lg);
     font-weight: 700;
-    color: var(--accent-primary);
+    color: var(--accent-secondary);
     white-space: nowrap;
     padding: 0.5rem 1rem;
-    background: rgba(212, 175, 55, 0.1);
+    background: rgba(6, 182, 212, 0.1);
     border-radius: 8px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
 /* ===========================================
@@ -299,11 +301,12 @@
     position: relative;
     text-align: center;
     padding: var(--space-10) var(--space-8);
-    background: var(--card-bg-dark);
+    background: var(--bg-card);
     border-radius: 24px;
-    border: 1px solid var(--card-border-default);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(12px);
 }
 
 .team-card::before {
@@ -327,10 +330,8 @@
 
 .team-card:hover {
     transform: translateY(-8px) scale(1.01);
-    border-color: var(--neon-purple);
-    box-shadow:
-        0 25px 50px -15px rgba(0, 0, 0, 0.5),
-        var(--neon-glow-purple);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--shadow-glow);
 }
 
 .team-icon {
@@ -398,11 +399,12 @@
     max-width: 650px;
     margin: var(--space-12) auto 0;
     padding: var(--space-10);
-    background: var(--card-bg-dark);
+    background: var(--bg-card);
     border-radius: 24px;
-    border: 1px solid var(--card-border-default);
+    border: 1px solid var(--card-border);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(12px);
 }
 
 .private-lessons-card::before {
