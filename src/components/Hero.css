@@ -4,63 +4,53 @@
 
 .hero {
     position: relative;
-    /* Reduced height to show more of the banner image */
-    min-height: 85vh;
-    height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    width: 100%;
     background-color: var(--bg-primary);
-    /* Pull content up behind header - full bleed to edges */
-    margin-top: -80px;
-    padding-top: 100px;
-    padding-bottom: 30px;
-    /* Remove side margins/padding for full-width */
+    /* Account for fixed header */
+    padding-top: 80px;
+    /* Full width bleed */
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
 }
 
 /* ===========================================
-   BACKGROUND
-   =========================================== */
-
-/* ===========================================
-   BACKGROUND
+   BACKGROUND - Using img tag approach for better control
    =========================================== */
 
 .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-image: url('/hero-banner.png');
-    /* Contain to show full image including gymnasts on edges */
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    /* Dark background behind image for letterboxing */
-    background-color: var(--bg-primary);
+    overflow: hidden;
 }
 
-/* Lighter, more subtle overlay to let the image pop */
+/* The banner image container */
+.hero-background::before {
+    content: '';
+    display: block;
+    width: 100%;
+    /* Banner image as full-width background */
+    background-image: url('/hero-banner.png');
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    /* Aspect ratio matching the banner (approximately 3:1 for wide banners) */
+    padding-top: 35%;
+}
+
+/* Subtle overlay - minimal darkness */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    /* Very minimal overlay */
     background: linear-gradient(to bottom,
-            rgba(13, 19, 33, 0.3) 0%,
-            rgba(13, 19, 33, 0.4) 40%,
-            rgba(13, 19, 33, 0.85) 100%);
-    /* Add a radial gradient to darken just the text area slightly if needed */
-    background-blend-mode: multiply;
+            rgba(13, 19, 33, 0) 0%,
+            rgba(13, 19, 33, 0) 80%,
+            rgba(13, 19, 33, 0.4) 100%);
+    pointer-events: none;
 }
 
 /* ===========================================
@@ -68,15 +58,7 @@
    =========================================== */
 
 .hero-content {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* Reserve space for the announcement banner at the bottom */
-    padding-bottom: 80px;
+    display: none;
 }
 
 .hero-container {
@@ -166,77 +148,146 @@
 }
 
 /* ===========================================
-   INFO CARDS
+   ANNOUNCEMENT BANNER - Now contains info cards
+   =========================================== */
+
+.hero-announcement {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(180deg,
+            rgba(13, 19, 33, 0.98) 0%,
+            rgba(10, 15, 28, 1) 100%);
+    border-top: 2px solid rgba(212, 168, 75, 0.3);
+    padding: var(--space-5) var(--space-6) var(--space-6);
+    z-index: 10;
+}
+
+.announcement-content {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    text-align: center;
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--space-5);
+}
+
+.announcement-content p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.announcement-content strong {
+    color: var(--color-gold-400);
+    font-weight: 700;
+}
+
+.announcement-icon {
+    font-size: 2rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* ===========================================
+   INFO CARDS - Now inside announcement
    =========================================== */
 
 .hero-info-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--space-4);
     justify-content: center;
-    margin-top: auto;
-    /* Add bottom margin for spacing from announcement banner */
-    margin-bottom: var(--space-8);
+    max-width: var(--container-xl);
+    margin: 0 auto;
     width: 100%;
 }
 
 .info-card {
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
+    flex: 1 1 280px;
+    max-width: 320px;
     display: flex;
-    align-items: center;
-    /* Center vertically specifically */
+    align-items: flex-start;
     gap: var(--space-4);
-    padding: var(--space-4) var(--space-6);
-    /* Frosted glass effect */
-    background: rgba(13, 19, 33, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-lg);
-    transition: transform var(--transition-base), background var(--transition-base);
+    padding: var(--space-4) var(--space-5);
+    /* Premium glass card effect */
+    background: linear-gradient(135deg,
+            rgba(30, 40, 60, 0.8) 0%,
+            rgba(20, 28, 45, 0.9) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 168, 75, 0.2);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .info-card:hover {
-    background: rgba(13, 19, 33, 0.8);
-    transform: translateY(-5px);
-    border-color: var(--accent-primary);
+    background: linear-gradient(135deg,
+            rgba(40, 50, 75, 0.85) 0%,
+            rgba(25, 35, 55, 0.95) 100%);
+    transform: translateY(-4px);
+    border-color: rgba(212, 168, 75, 0.5);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(212, 168, 75, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .info-card-icon {
     flex-shrink: 0;
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(212, 168, 75, 0.1), rgba(212, 168, 75, 0.2));
+    background: linear-gradient(135deg,
+            rgba(212, 168, 75, 0.2) 0%,
+            rgba(212, 168, 75, 0.35) 100%);
     border-radius: 50%;
     color: var(--accent-primary);
-    border: 1px solid rgba(212, 168, 75, 0.3);
+    border: 1px solid rgba(212, 168, 75, 0.4);
+    box-shadow:
+        0 4px 12px rgba(212, 168, 75, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.info-card-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
 .info-card-content {
     text-align: left;
+    flex: 1;
 }
 
 .info-card-content h4 {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--color-gold-400);
-    /* Lighter gold */
-    margin-bottom: var(--space-1);
-    opacity: 0.9;
+    margin-bottom: var(--space-2);
+    line-height: 1;
 }
 
 .info-card-content p {
     font-size: 0.95rem;
-    color: #ffffff;
-    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
     margin: 0;
+}
+
+.info-card-content p+p {
+    margin-top: 2px;
 }
 
 /* ===========================================
@@ -246,7 +297,6 @@
 .hero-scroll-indicator {
     position: absolute;
     bottom: var(--space-16);
-    /* Adjusted position */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -280,36 +330,6 @@
 }
 
 /* ===========================================
-   ANNOUNCEMENT BANNER
-   =========================================== */
-
-.hero-announcement {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(90deg, rgba(13, 19, 33, 0.95), rgba(20, 30, 50, 0.95));
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: var(--space-3) var(--space-6);
-    z-index: 10;
-}
-
-.announcement-content {
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-3);
-    text-align: center;
-}
-
-.announcement-icon {
-    font-size: var(--text-xl);
-    line-height: 1;
-}
-
-/* ===========================================
    RESPONSIVE
    =========================================== */
 
@@ -317,22 +337,38 @@
     .hero-title {
         font-size: 4rem;
     }
+
+    .info-card {
+        flex: 1 1 240px;
+    }
 }
 
 @media (max-width: 768px) {
     .hero {
-        padding-top: 120px;
-        height: auto;
-        min-height: 100vh;
+        padding-top: 70px;
     }
 
-    .hero-content {
-        padding-bottom: 60px;
-        /* Space for announcement */
+    .hero-background::before {
+        /* Taller aspect ratio on mobile for better visibility */
+        padding-top: 50%;
     }
 
     .hero-title {
         font-size: 3rem;
+    }
+
+    .hero-announcement {
+        padding: var(--space-4) var(--space-4) var(--space-5);
+    }
+
+    .announcement-content {
+        flex-direction: column;
+        gap: var(--space-2);
+        padding-bottom: var(--space-3);
+    }
+
+    .announcement-content p {
+        font-size: 1rem;
     }
 
     .hero-info-cards {
@@ -343,6 +379,7 @@
 
     .info-card {
         max-width: 100%;
+        flex: 1 1 auto;
     }
 
     .hero-scroll-indicator {
